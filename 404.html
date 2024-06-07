@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Meta Definitions -->
+        <meta charset="UTF-8">
+        <!-- Define the viewport for better responsive behavior -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Favicon -->
+        <link rel="icon" href="./favicon.ico" />
+        <!-- Theme colour Meta Tag -->
+        <meta name="theme-color" content="#FFFFFF" />
+        <!-- Other Meta Tags -->
+        <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
+        <!-- Title of the Webpage -->
+        <title>404 - Page Not Found</title>
+
+        <!-- Google Fonts Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Google Fonts CSS Link -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+        <!-- Inline CSS for Styling -->
+        <style>
+            /* Base Reset Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            /* Error Container Styles */
+            .error-container {
+                gap: 30px;
+                width: 100%;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background-color: white;
+            }
+
+            /* Error Text Styles */
+            .error-text {
+                gap: 10px;
+                width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Heading Styles */
+            h1 {
+                color: #0072BC;
+                font-size: 25px;
+                font-weight: 500;
+                letter-spacing: 2px;
+                word-spacing: normal;
+                text-transform: capitalize;
+            }
+
+            /* Heading Styles */
+            h4 {
+                color: #212529;
+                font-size: 16px;
+                font-weight: 400;
+                text-align: center;
+                word-spacing: normal;
+                letter-spacing: normal;
+            }
+
+            /* Paragraph Styles */
+            p {
+                color: #212529;
+                font-size: 14px;
+                font-weight: 400;
+                word-spacing: normal;
+                letter-spacing: normal;
+            }
+
+            /* Anchor Link Styles */
+            a {
+                color: #212529;
+                text-decoration: underline;
+            }
+
+            /* Mobile Devices */
+            @media screen and (max-device-width: 480px) {
+
+                /* Error Container Styles */
+                .error-container {
+                    gap: 15px;
+                }
+
+                /* Error Text Styles */
+                .error-text {
+                    gap: 5px;
+                }
+
+                /* Heading Styles */
+                h1 {
+                    font-size: 20px;
+                    letter-spacing: 1px;
+                }
+
+                /* Heading Styles */
+                h4 {
+                    font-size: 14px;
+                }
+
+                /* Paragraph Styles */
+                p {
+                    font-size: 12px;
+                }
+            }
+
+            /* Tablet Devices */
+            @media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+                
+                /* Error Container Styles */
+                .error-container {
+                    gap: 20px;
+                }
+
+                /* Heading Styles */
+                h1 {
+                    font-size: 25px;
+                }
+            }
+
+            /* Small Screens Devices, Laptops */
+            @media screen and (min-device-width: 769px) and (max-device-width: 991px) {
+                
+                /* Error Container Styles */
+                .error-container {
+                    gap: 25px;
+                }
+            }
+
+            /* Large Screens Devices & Desktops */
+            @media screen and (min-device-width: 992px) and (max-device-width: 1024px) {
+                /* No value for Large Screen Devices and Desktops */
+            }
+        </style>
+    </head>
+    <body>
+        <div class='error-container'>
+            <div class='error-text'>
+                <!-- Error message -->
+                <h1>404 - Page Not Found</h1>
+                <!-- Display remaining seconds before redirection -->
+                <h4>You will be redirected to the home page in <span id='seconds' aria-live='polite'>5</span> seconds...</h4>
+            </div>
+            <p>If you are not redirected, <a href='#' rel='noopener noreferrer' title='Redirect'>click here</a>.</p>
+        </div>
+
+        <!-- Redirect Script -->
+        <script>
+            // Initialize countdown seconds
+            let seconds = 5;
+
+            // Function to handle the page redirection
+            const redirectToPage = () => {
+                window.location.href = '#';
+            };
+
+            // Timer to manage the countdown and trigger redirection
+            const redirectTimer = setInterval(() => {
+                seconds--;
+                document.getElementById('seconds').textContent = seconds;
+                if (seconds <= 0) {
+                    clearInterval(redirectTimer);
+                    redirectToPage();
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>
